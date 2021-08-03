@@ -1,11 +1,16 @@
-@products.map do |product|
-  {
-    store: render('stores/store', store: product.store),
-    id: product.id,
-    code: product.code,
-    name: product.name,
-    variants: product.product_variants.collect do |product_variant|
-      render('product_variants/variant', product_variant: product_variant)
-    end
-  }
-end
+# frozen_string_literal: true
+
+{
+  pagination: render('kaminari/pagination', resources: @products),
+  data: @products.map do |product|
+    {
+      store: render('stores/store', store: product.store),
+      id: product.id,
+      code: product.code,
+      name: product.name,
+      variants: product.product_variants.collect do |product_variant|
+        render('product_variants/variant', product_variant: product_variant)
+      end
+    }
+  end
+}

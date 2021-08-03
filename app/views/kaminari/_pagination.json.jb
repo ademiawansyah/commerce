@@ -1,0 +1,9 @@
+return {} unless defined?(resources)
+
+{
+  total_entries: resources.total_count,
+  total_pages: resources.total_pages,
+  current_page: resources.current_page,
+  next_page: resources.next_page,
+  prev_page: resources.prev_page
+}

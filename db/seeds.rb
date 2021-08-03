@@ -5,14 +5,14 @@
   store.name = Faker::Company.name
   store.save
 
-  2.times do
+  5.times do
     product = Product.new
     product.name = Faker::Commerce.product_name
     product.save
 
     store.products << product
 
-    2.times do
+    3.times do
       material = Faker::Commerce.material
       color    = Faker::Commerce.color
 

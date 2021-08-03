@@ -17,6 +17,10 @@ gem 'mongoid'
 # simpler
 gem 'jb'
 
+# https://github.com/kaminari/kaminari
+# pagination
+gem 'kaminari-mongoid'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
