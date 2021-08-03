@@ -1,0 +1,5 @@
+{
+  id: product_variant.id,
+  code: product_variant.code,
+  name: product_variant.name
+}

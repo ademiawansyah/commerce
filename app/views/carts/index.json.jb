@@ -1,0 +1,6 @@
+@carts.map do |cart|
+  {
+    id: cart.id,
+    url: cart_url(cart, format: :json)
+  }
+end

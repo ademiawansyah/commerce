@@ -1,0 +1,4 @@
+{
+  id: store.id,
+  name: store.name
+}

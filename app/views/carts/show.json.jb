@@ -1,0 +1,5 @@
+{
+  id: @cart.id,
+  created_at: @cart.created_at,
+  updated_at: @cart.updated_at
+}
