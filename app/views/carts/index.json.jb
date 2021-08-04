@@ -5,7 +5,7 @@
     {
       store: render('stores/store', store: store),
       items: cart_items.collect do |cart_item|
-        render('cart_item/cart_item', cart_item: cart_item)
+        render('cart_items/cart_item', cart_item: cart_item)
       end
     }
   end

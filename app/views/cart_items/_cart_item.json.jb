@@ -1,5 +1,6 @@
 {
   id: cart_item.id,
+  store_name: cart_item.product_variant.product.store.name,
   product_name: cart_item.product_variant.product.name,
   variant_name: cart_item.product_variant.name,
   quantity: cart_item.quantity

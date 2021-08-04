@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 {
+  code: 200,
+  messages: [],
   pagination: render('kaminari/pagination', resources: @products),
   data: @products.map do |product|
     {
