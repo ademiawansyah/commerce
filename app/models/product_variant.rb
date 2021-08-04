@@ -6,7 +6,8 @@ class ProductVariant
   field :code, type: String
   field :name, type: String
 
-  embedded_in :product
+  belongs_to :product
+  has_many :cart_items
 
   before_create :generate_code
 

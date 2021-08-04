@@ -8,8 +8,9 @@ class Product
   field :name, type: String
 
   # relationship
-  embeds_many :product_variants
   belongs_to :store
+  has_many :product_variants
+  has_many :cart_items
 
   # callbacks
   before_create :generate_code

@@ -1,51 +1,14 @@
+# frozen_string_literal: true
+
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :update, :destroy]
 
-  # GET /carts
+  # GET users/user_id/carts
   def index
-    @carts = Cart.all
+    # TODO: REPLACE User.first.id with params, for testing purpose only
+    @cart = Cart.includes(cart_items: [product_variant: :product])
+                .where(user_id: User.first.id)
+                .active
 
-    render json: @carts
+    @grouping_items = @cart.cart_items.group_by { |ci| ci.product_variant.product.store }
   end
-
-  # GET /carts/1
-  def show
-    render json: @cart
-  end
-
-  # POST /carts
-  def create
-    @cart = Cart.new(cart_params)
-
-    if @cart.save
-      render json: @cart, status: :created, location: @cart
-    else
-      render json: @cart.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /carts/1
-  def update
-    if @cart.update(cart_params)
-      render json: @cart
-    else
-      render json: @cart.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /carts/1
-  def destroy
-    @cart.destroy
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cart
-      @cart = Cart.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def cart_params
-      params.fetch(:cart, {})
-    end
 end

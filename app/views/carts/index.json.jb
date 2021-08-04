@@ -1,6 +1,12 @@
-@carts.map do |cart|
-  {
-    id: cart.id,
-    url: cart_url(cart, format: :json)
-  }
-end
+# frozen_string_literal: true
+
+{
+  data: @grouping_items.map do |store, cart_items|
+    {
+      store: render('stores/store', store: store),
+      items: cart_items.collect do |cart_item|
+        render('cart_item/cart_item', cart_item: cart_item)
+      end
+    }
+  end
+}
