@@ -5,11 +5,18 @@ class ProductVariant
   include Mongoid::Timestamps
   field :code, type: String
   field :name, type: String
+  field :price, type: Float
 
   belongs_to :product
   has_many :cart_items
 
   before_create :generate_code
+
+  def sell_price
+    return price if price.present?
+
+    product.price
+  end
 
   private
 

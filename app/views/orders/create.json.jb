@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+{
+  code: 200,
+  messages: [],
+  data: {
+    order: render('orders/order', order: @order),
+    items: @order.order_items.collect do |order_item|
+      render('order_items/order_item', order_item: order_item)
+    end
+  }
+}

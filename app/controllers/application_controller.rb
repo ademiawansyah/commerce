@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  rescue_from StandardError, with: :error_500
+  # rescue_from StandardError, with: :error_500
   rescue_from Mongoid::Errors::DocumentNotFound, with: :error_404
 
   def error_500(exception)

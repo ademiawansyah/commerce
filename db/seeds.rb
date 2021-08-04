@@ -9,16 +9,17 @@
     product       = Product.new
     product.name  = Faker::Commerce.product_name
     product.store = store
+    product.price = Faker::Commerce.price(range: 1000..10_000)
     product.save!
 
     5.times do
       material = Faker::Commerce.material
       color    = Faker::Commerce.color
+      price    = Faker::Commerce.price(range: 1000..10_000)
 
       variant_name = "#{material} #{color}"
-      ProductVariant.create!(name: variant_name, product: product)
+      ProductVariant.create!(name: variant_name, product: product, price: price)
     end
-
   end
 end
 
@@ -28,7 +29,6 @@ user.save!
 
 cart             = Cart.new
 cart.user        = user
-cart.checkout_at = nil
 cart.save!
 
 4.times do
@@ -47,5 +47,4 @@ cart.save!
       cart_item.save!
     end
   end
-
 end

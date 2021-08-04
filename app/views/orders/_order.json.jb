@@ -1,0 +1,7 @@
+{
+  id: order.id,
+  grand_total: order.grand_total,
+  created_at: order.created_at,
+  status: order.status,
+  items: order.order_items.size
+}

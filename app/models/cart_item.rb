@@ -9,4 +9,8 @@ class CartItem
   # relationship
   belongs_to :cart, counter_cache: true
   belongs_to :product_variant
+
+  def checkout?
+    checkout_at.present?
+  end
 end

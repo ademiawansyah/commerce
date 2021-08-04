@@ -6,6 +6,7 @@ class Product
   # field
   field :code, type: String
   field :name, type: String
+  field :price, type: Float
 
   # relationship
   belongs_to :store

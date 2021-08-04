@@ -1,0 +1,6 @@
+@orders.map do |order|
+  {
+    id: order.id,
+    url: order_url(order, format: :json)
+  }
+end

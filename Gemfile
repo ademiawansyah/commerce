@@ -21,6 +21,10 @@ gem 'jb'
 # pagination
 gem 'kaminari-mongoid'
 
+# https://github.com/thetron/mongoid-enum
+# enum status
+gem 'mongoid-enum', git: 'git@github.com:choilive/mongoid-enum.git'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

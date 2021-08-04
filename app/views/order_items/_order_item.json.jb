@@ -1,0 +1,9 @@
+{
+  id: order_item.id,
+  product_name: order_item.product_detail['product_name'],
+  product_variant: order_item.product_detail['product_variant'],
+  store_name: order_item.product_detail['store_name'],
+  price: order_item.price,
+  quantity: order_item.quantity,
+  grand_total: order_item.grand_total
+}
