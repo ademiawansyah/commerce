@@ -6,7 +6,9 @@ class OrdersController < ApplicationController
   # GET /orders
   def index
     # TODO: REPLACE User.first.id with params, for testing purpose only
-    @orders = Order.where(user_id: User.first.id).all
+    @orders = Order.where(user_id: User.first.id)
+                   .page(params[:page] || 1)
+                   .per(5)
   end
 
   # POST /orders

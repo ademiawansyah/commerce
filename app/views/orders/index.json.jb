@@ -1,6 +1,15 @@
-@orders.map do |order|
-  {
-    id: order.id,
-    url: order_url(order, format: :json)
-  }
-end
+# frozen_string_literal: true
+
+{
+  code: 200,
+  messages: [],
+  pagination: render('kaminari/pagination', resources: @orders),
+  data: @orders.map do |order|
+    {
+      order: render('orders/order', order: order),
+      items: order.order_items.collect do |order_item|
+        render('order_items/order_item', order_item: order_item)
+      end
+    }
+  end
+}
