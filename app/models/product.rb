@@ -3,14 +3,38 @@
 class Product
   include Mongoid::Document
   include Mongoid::Timestamps
+  # field
   field :code, type: String
   field :name, type: String
 
+  # relationship
   embeds_many :product_variants
-
   belongs_to :store
 
+  # callbacks
   before_create :generate_code
+
+  # index
+  index name: 'text'
+
+  scope :by_store_name, lambda { |store_name|
+    return nil if store_name.blank?
+
+    store_ids = Store.where('$text' => { '$search' => store_name }).pluck(:id)
+
+    where(:store_id.in => store_ids)
+  }
+
+  scope :by_product_name, lambda { |product_name|
+    return nil if product_name.blank?
+
+    where('$text' => { '$search' => product_name })
+  }
+
+  def self.search(params = {})
+    by_store_name(params[:store_name])
+      .by_product_name(params[:product_name])
+  end
 
   private
 
