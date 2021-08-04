@@ -19,7 +19,8 @@ class CartItemOfficer
 
     @cart_item = CartItem.find_or_initialize_by(
       cart: cart,
-      product_variant: product_variant
+      product_variant: product_variant,
+      checkout_at: nil
     )
 
     if cart_item.new_record?
@@ -36,12 +37,11 @@ class CartItemOfficer
   end
 
   def cart
-    @cart ||= Cart.where(user_id: params[:user_id]).active || build_cart
+    @cart ||= Cart.find_by(user_id: params[:user_id]) || build_cart
   end
 
   def build_cart
     Cart.create!(
-      checkout_at: nil,
       user_id: params[:user_id]
     )
   end

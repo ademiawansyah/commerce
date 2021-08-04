@@ -4,6 +4,7 @@ class CartItem
 
   # field
   field :quantity, type: Integer
+  field :checkout_at, type: DateTime
 
   # relationship
   belongs_to :cart, counter_cache: true
