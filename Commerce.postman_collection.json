@@ -15,7 +15,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"page\":1,\n    \"store_name\": \"kuphal\",\n    \"product_name\": \"\"\n}",
+					"raw": "{\n    \"page\":1,\n    \"store_name\": \"\",\n    \"product_name\": \"\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
