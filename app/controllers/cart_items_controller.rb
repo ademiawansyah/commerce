@@ -14,6 +14,10 @@ class CartItemsController < ApplicationController
     @cart_item.update!(update_params)
   end
 
+  def destroy
+    @cart_item.destroy!
+  end
+
   private
 
   def create_params
